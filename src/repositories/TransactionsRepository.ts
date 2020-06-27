@@ -34,12 +34,11 @@ class TransactionsRepository {
   }
 
   public create({ title, value, type }: CreateTransactionDTO): Transaction {
-    const transaction: Transaction = {
-      id: uuid(),
+    const transaction = new Transaction({
       title,
       value,
       type,
-    };
+    });
     this.transactions.push(transaction);
 
     return transaction;
